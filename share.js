@@ -4,7 +4,7 @@ By Karl Franke
 
 Add the following code as a apps script to the sheet your form puts its 
 responses in.
-Edit the variables noted below to indicate the proper folder name and 
+Edit the variables noted below to indicate the proper folder ID and 
 columns.
 Add a trigger to run the addNewUsers function upon form submission.
 */
@@ -12,12 +12,12 @@ Add a trigger to run the addNewUsers function upon form submission.
 function addNewUsers() {
 ////////////////  EDIT THESE Variables /////////////////////
   var emailColumn = 3;
-  var nameOfFolder = 'Fake Folder to Share';
+  var myFolderId = '0BwBCZLzmPlr1fjU4cmdqRW9FaTJZNEJRV3RxdXJDeUdvMl92RDFCdlJ2MVNtWVZ2ZmVLdmM';
   var statusColumn = 6;
 ////////////////////////////////////////////////////////////
   
   // Build list of current shared users
-  var folder = DocsList.getFolder(nameOfFolder);
+  var folder = DriveApp.getFolderById(myFolderId);
   var editors = folder.getEditors();
   var editorsArray = [];
   for (var i = 0; i < editors.length; i++){
