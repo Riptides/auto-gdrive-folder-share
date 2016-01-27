@@ -32,12 +32,10 @@ function addNewUsers() {
   var myDataRange = sheet.getRange(numOfRows, emailColumn, 1, 1);
   var emailToAdd = myDataRange.getValue();
   
-  // Check if the email is already an editor, add if not, and document 
-action in sheet
+  // Check if the email is already an editor, add if not, and document action in sheet
   if (editorsArray.indexOf(emailToAdd) >= 0){
     Logger.log(emailToAdd + " - Already an editor");
-    sheet.getRange(numOfRows, statusColumn).setValue('Already an 
-editor');
+    sheet.getRange(numOfRows, statusColumn).setValue('Already an editor');
   } else {
     Logger.log(emailToAdd + " - Adding as editor");
     folder.addEditor(emailToAdd);
